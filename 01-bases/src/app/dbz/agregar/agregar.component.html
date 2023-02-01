@@ -1,0 +1,19 @@
+<h3>Agregar <small>{{nuevo.nombre}}</small></h3>
+<hr>
+<form action="" (ngSubmit)="agregar()">
+    <!-- La llaves cuadradas se utiliza para establecer un valor -->
+    <!-- Los parentesis se utiliza para establecer una función -->
+    <!-- <input 
+                type="text" 
+                placeholder="Nombre"
+                [value]="nuevo.nombre" 
+                (input)="cambiarNombre( $event )" 
+            /> -->
+
+    <input type="text" placeholder="Nombre" name="nombre" [(ngModel)]="nuevo.nombre" />
+    <input type="number" placeholder="Poder" name="poder" [(ngModel)]="nuevo.poder" />
+
+    <button>
+        Agregar
+    </button>
+</form>
