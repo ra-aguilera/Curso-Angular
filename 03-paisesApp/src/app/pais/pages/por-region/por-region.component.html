@@ -1,0 +1,48 @@
+<div class="animate__animated animate__fadeIn animate__faster">
+    <h3>Buscar por Región <small> {{ regionActiva | titlecase}} </small></h3>
+
+    <h5>Seleccione la región</h5>
+    <div class="row">
+        <div class="col">
+            <!-- 1. forma de cambiar clase y mantener "active" a un botón con [class] -->
+            <!-- <button *ngFor="let region of regiones"
+                    class="btn btn-outline-primary"
+                    [class.btn-primary] = "region === regionActiva"
+                    (click)="activarRegion( region )">
+                {{ region }}
+            </button> -->
+
+            <!-- 2. forma de cambiar clase y mantener "active" a un botón con [ngClass] -->
+            <!-- <button *ngFor="let region of regiones"
+                    class="btn btn-outline-primary"
+                    [ngClass]= "{
+                        'btn-primary': region === regionActiva,
+                        'btn-outline-primary': region !== regionActiva
+                    }"
+                    (click)="activarRegion( region )">
+                {{ region }}
+            </button> -->
+
+            <!-- CSS clases condicionales -->
+
+            <!-- 1. Agregando codigo js en [class]  -->
+            <!-- <button *ngFor="let region of regiones"
+                    [class]="(region === regionActiva) ? 'btn btn-primary' : 'btn btn-outline-primary'"
+                    (click)="activarRegion( region )">
+                {{ region }}
+            </button> -->
+
+            <!-- 2. Se crea una función para retornar la clase desde el componente ts -->
+            <button *ngFor="let region of regiones"
+                    [class]="getClase( region )"
+                    (click)="activarRegion( region )">
+                {{ region | titlecase}}
+            </button>
+        </div>
+    </div>
+</div>
+<div  *ngIf="paises.length > 0" class="row">
+    <div class="col">
+        <app-pais-tabla [paises]="paises"></app-pais-tabla>
+    </div>
+</div>
