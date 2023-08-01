@@ -1,0 +1,10 @@
+<input 
+    type="text" 
+    [(ngModel)]="inputSearch"
+    [placeholder]="placeholder" 
+    class="form-control"
+    [(ngModel)] = "initialValue"
+    (keyup)= "onKeyPress(inputSearch)"
+    >
+
+    <!-- (keyup.enter) = "emmitValue()" -->
